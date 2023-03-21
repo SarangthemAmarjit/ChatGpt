@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:chat_gpt_sdk/chat_gpt_sdk.dart';
 import 'package:chatgptapp/constants.dart';
 import 'dart:math' as math;
@@ -91,6 +93,7 @@ class _TranslateScreenState extends State<TranslateScreen> {
           isListen = true;
         });
         speech!.listen(onResult: (value) {
+          log('Recognize words :${value.recognizedWords}');
           setState(() {
             _txtWord.text = value.recognizedWords;
           });
